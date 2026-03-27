@@ -30,6 +30,9 @@ map doesn't despawn entities that out of render distance
 the top of the big trees doesn't generate and is cut off
 the top and right of small tree doesn't generate and is cut off
 
+#### Boulders and Large Bushes are spawning together as a bundle
+the bottom two boulder sprites and the top two large bush sprite are being spawned togther as a bundle for some reason
+
 #### Tree placement errors
 tree in water, tree too close (on top of each other), in very small patches
 
