@@ -41,5 +41,5 @@ when the player jump w/ space bar it's a animation that plays but nothing really
 the z-sorting for the player is not work, most likely the map decors are loading on the wrong z-layer
 
 ### Other 
-#### npc & pathfinding
+#### NPC & Pathfinding
 both folders are place holders, both empty
