@@ -5,8 +5,8 @@ use bevy::prelude::*;
 
 pub const MAP_SIZE: i32 = 30;
 pub const TILE_SIZE: f32 = 16.0;
-pub const NOISE_SCALE: f64 = 0.12;
-pub const DECOR_NOISE_SCALE: f64 = 0.99;
+pub const NOISE_SCALE: f64 = 0.05;
+pub const DECOR_NOISE_SCALE: f64 = 0.08;
 pub const GRID_X: u32 = 25;
 pub const GRID_Y: u32 = 18;
 
@@ -14,7 +14,7 @@ fn get_tile_type(x: i32, y: i32, perlin: &Perlin) -> (bool, bool) {
     let raw_val = perlin.get([x as f64 * NOISE_SCALE, y as f64 * NOISE_SCALE]);
 
     let val = (raw_val + 1.0) / 2.0;
-    let is_grass = val > 0.3 && val < 0.7;
+    let is_grass = val > 0.3 && val < 0.65;
     let is_water = val < 0.3;
 
     (is_grass, is_water)
@@ -83,7 +83,9 @@ pub fn spawn_chunk(
 
                 // --- 2. DECORATION ---
                 let get_val = |tx: i32, ty: i32| {
-                    perlin.get([tx as f64 * DECOR_NOISE_SCALE, ty as f64 * DECOR_NOISE_SCALE])
+                    let raw =
+                        perlin.get([tx as f64 * DECOR_NOISE_SCALE, ty as f64 * DECOR_NOISE_SCALE]);
+                    (raw + 1.0) / 2.0
                 };
                 let val = get_val(x, y);
 
@@ -97,7 +99,7 @@ pub fn spawn_chunk(
 
                 if !near_edge {
                     // 1. DENSE FOREST
-                    if val > 0.50 {
+                    if val > 0.55 {
                         if x % 6 == 0 && y % 6 == 0 {
                             let tree_type = if val > 0.80 { "oak_tree" } else { "pine_tree" };
                             spawn_bundle(
@@ -111,14 +113,14 @@ pub fn spawn_chunk(
                         }
                     }
                     // 2. LARGE OBSTACLES
-                    else if val > 0.40 {
+                    else if val > 0.45 && val < 0.5 {
                         if x % 5 == 1 && y % 5 == 1 {
                             let obstacle = if val > 0.58 { "boulder" } else { "hollow_log" };
                             spawn_bundle(commands, obstacle, x, y, decor_layout, decor_tex.clone());
                         }
                     }
                     // 3. Small Decors
-                    else if val > 0.20 {
+                    else if val > 0.4 && val < 0.3 {
                         if x % 3 == 0 && y % 3 == 0 {
                             let clutter = match (x + y) % 6 {
                                 0 => "mushrooms",
