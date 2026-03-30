@@ -1,27 +1,27 @@
-Dreams: The Video Game Concept Summary
+# Dreams: The Video Game Concept Summary
 
 By: ME! a solo dev
 
-1. Core Identity & Gameplay Loop
+### 1. Core Identity & Gameplay Loop
 
-Genre: 2D Singleplayer Top-Down Procedural Survival RPG (Rust/Bevy)
+##### Genre: 2D Singleplayer Top-Down Procedural Survival RPG (Rust/Bevy)
 
-Core Gameplay:
+##### Core Gameplay:
 The player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game “day” lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
 
-The Loop:
+##### The Loop:
 The world is a fractured mind attempting to reconstruct reality. Each reset is the brain trying to “solve” itself. The player, unknowingly acting as a disruptive force (“the Virus”), causes this process to fail every cycle.
 
 Player progression persists across loops (gear, stats, items), while the world, NPC placements, and terrain regenerate. Key structures and story elements are guaranteed to reappear in different forms each cycle.
 
-Short-Term Player Motivation:
+##### Short-Term Player Motivation:
 Each cycle encourages exploration, resource gathering, quest completion, and character strengthening under the belief that the player is progressing toward saving the world.
 
 ---
 
-2. Systems & Mechanics
+### 2. Systems & Mechanics
 
-Progression (The “Virus” System):
+#### Progression (The “Virus” System):
 The player collects weapons, food, and survival tools, alongside unique “trauma fragments” tied to story progression. While these function like traditional RPG upgrades, they represent pieces of a traumatic memory.
 
 As the player becomes stronger:
@@ -33,9 +33,8 @@ As the player becomes stronger:
 
 This creates a hidden cost to progression: power reinforces the broken state of the mind.
 
----
 
-Core Emotion System:
+#### Core Emotion System:
 
 A central “Core Emotion” (e.g., Anger, Sadness, etc.) influences each world reset.
 
@@ -47,9 +46,8 @@ It affects:
 
 Players can influence the Core Emotion through actions and interactions, indirectly shaping the next cycle’s world state.
 
----
 
-NPC Interaction System:
+#### NPC Interaction System:
 
 NPCs are fragmented memories or immune responses within the mind.
 
@@ -63,9 +61,9 @@ NPC behavior is influenced by the Core Emotion, resulting in varied, sometimes i
 
 ---
 
-3. Narrative Structure (The “Hero” Delusion)
+### 3. Narrative Structure (The “Hero” Delusion)
 
-The Player:
+#### The Player:
 The player believes they are the hero attempting to fix a broken world.
 
 In reality, they are a memory of a real-life attacker—the source of the dreamer’s trauma.
@@ -78,9 +76,8 @@ This truth is not revealed immediately. Instead:
 
 The game maintains the illusion of heroism while gradually introducing discomfort and inconsistency.
 
----
 
-The Girl (Guide Character):
+#### The Girl (Guide Character):
 
 A sarcastic, abrasive guide who introduces mechanics and systems.
 
@@ -96,9 +93,9 @@ Her role is to:
 
 ---
 
-4. The Final Confrontation
+### 4. The Final Confrontation
 
-The Mirror Boss:
+#### The Mirror Boss:
 
 The final boss is a “clean” or “static” version of the player character.
 
@@ -112,9 +109,9 @@ The battle is not just mechanical difficulty—it represents the consequence of 
 
 ---
 
-5. Endings
+### 5. Endings
 
-Victory Ending:
+#### Victory Ending:
 The player defeats the “static” version.
 
 * The mind’s last defense is destroyed
@@ -123,9 +120,8 @@ The player defeats the “static” version.
 
 The player “wins,” but at the ultimate cost.
 
----
 
-Sacrifice Ending:
+#### Sacrifice Ending:
 The player allows the static version to erase them.
 
 * The “Virus” is removed
@@ -137,7 +133,7 @@ All player progress is deleted as part of the resolution.
 
 ---
 
-6. Technical Overview
+### 6. Technical Overview
 
 * Engine: Bevy (Rust)
 * World Generation:
@@ -151,7 +147,7 @@ All player progress is deleted as part of the resolution.
 
 ---
 
-7. Current Progress
+### 7. Current Progress
 
 * 1 month into devolopment working on a MVP
 * full single biome (forest) noised, with a player complete and full camera complete
