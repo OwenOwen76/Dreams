@@ -4,6 +4,8 @@ This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player exp
 
 Overview.md has more info on this
 
+---
+
 ## TODO/Issues
 
 ### MAP 
