@@ -153,5 +153,5 @@ All player progress is deleted as part of the resolution.
 * full single biome (forest) noised, with a player complete and full camera complete
 * combat and collision is being worked on right now
 * NPC dialog system has a 1-NPC MVP version that read limited keyword and creates dynamic response
-* there a fully functional pause menu and loading screen
+* there a fully functional pause menu and loading screen because why not
 
