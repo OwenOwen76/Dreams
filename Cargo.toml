@@ -14,7 +14,7 @@ rand = "0.10.0"
 bevy_procedural_tilemaps = "0.3.0"
 
 [target.wasm32-unknown-unknown.dependencies]
-getrandom = { version = "0.4", features = ["wasm_js"] }
+getrandom = { version = "0.4", features = ["wasm_js"] } // fix this later remember!!
 
 [profile.dev]
 opt-level = 1
