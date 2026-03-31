@@ -6,7 +6,7 @@ By: ME! a solo dev
 ##### Genre: 2D Singleplayer Top-Down Procedural Survival RPG (Rust/Bevy)
 
 ##### Core Gameplay:
-The player explores an open, procedurally generated world, engaging in real-time combat (in the style of Zelda), gathering resources, completing quests, and interacting with NPCs. Each in-game “day” lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
+This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat, gathering resources, completing quests, and interacting with NPCs, and uncover the secrets of this world. Each in-game day lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
 
 ##### The Loop:
 The world is a fractured mind attempting to reconstruct reality. Each reset is the brain trying to “solve” itself. The player, unknowingly acting as a disruptive force (“the Virus”), causes this process to fail every cycle.
