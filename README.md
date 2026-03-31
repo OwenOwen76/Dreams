@@ -2,8 +2,11 @@
 
 This is a 2D Singleplayer Top-Down Procedural Survival RPG, where the player explores an open, procedurally generated world, engaging in real-time combat, gathering resources, completing quests, and interacting with NPCs, and uncover the secrets of this world. Each in-game day lasts approximately 30 minutes and ends at Midnight, where the entire world resets with a new procedural seed.
 
-Overview.md has more info on this and my current progress, don't ask why I've organized it like this because I have no idea either.
+Overview.md has more info on this and my current progress, don't ask why I've organized it like this because I have no idea either. Note that Overview.md contains basically my entire outline for my game so reading everything there will significantly impact your gameplay experience.
 
+This game is still in the early developmental phrases and therefore please do not judge the game based on what you see now. However feedbacks are welcome, make a pull requewst, report a issue, or DM me in Discord, my usename is *oz_12345_*
+
+Have a nice day~
 
 ## TODO/Issues
 
