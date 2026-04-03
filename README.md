@@ -8,6 +8,10 @@ This game is still in the early developmental phrases and therefore please do no
 
 Have a nice day~
 
+## Running on the Web
+
+Follow the instructions in wasm.md to run this locally on the web, however it is not recommended because there is significant downgrade in quality and the camera is especially laggy. Most of the errors is mostly likely due to compiling differences than was created when the files was converted into Python.
+
 ## TODO/Issues
 
 ### MAP 
