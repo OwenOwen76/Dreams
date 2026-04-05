@@ -73,7 +73,7 @@ pub fn read_debug_commands(
     mut debug_cmd: ResMut<DebugCommand>,
     mut char_evr: MessageReader<KeyboardInput>,
     keys: Res<ButtonInput<KeyCode>>,
-    player_query: Query<&Transform, With<crate::characters::input::Player>>,
+    mut player_query: Query<&Transform, With<crate::characters::input::Player>>,
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
     mut next_state: ResMut<NextState<DebugOn>>,
@@ -130,6 +130,7 @@ pub fn read_debug_commands(
 
         match parts[0] {
             "/spawn" => {
+                // Expected format /spawn {targot type} {target name}
                 let option = parts.get(1).unwrap_or(&"_");
                 match *option {
                     "tilemap" => {
@@ -144,6 +145,32 @@ pub fn read_debug_commands(
                         }
                     }
                     _ => warn!("Unknown spawn option: {}", option),
+                }
+            }
+            "/tp" => {
+                // Expected format /tp @{target} x y
+                let target = parts.get(1).unwrap_or(&"_");
+
+                match *target {
+                    "@p" => {
+                        let x_arg = parts.get(2);
+                        let y_arg = parts.get(3);
+
+                        if let (Some(x_str), Some(y_str)) = (x_arg, y_arg) {
+                            if let (Ok(x), Ok(y)) = (x_str.parse::<f32>(), y_str.parse::<f32>()) {
+                                if let Ok(mut transform) = player_query.single_mut() {
+                                    transform.translation.x = x * 16.0;
+                                    transform.translation.y = y * 16.0;
+                                    info!("Teleported @p to {}, {}", x, y);
+                                }
+                            } else {
+                                warn!("Invalid coordinates! Use numbers: /tp @p <x> <y>");
+                            }
+                        } else {
+                            warn!("Usage: /tp @p <x> <y>");
+                        }
+                    }
+                    _ => warn!("Unknown target: '{}'. Try @p", target),
                 }
             }
             "/help" => info!("Available: /spawn tilemap <name>"),
