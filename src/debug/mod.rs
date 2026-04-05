@@ -148,7 +148,7 @@ pub fn read_debug_commands(
                 }
             }
             "/tp" => {
-                // Expected format /tp @{target} x y
+                // Expected format /tp @{target} <x> <y>
                 let target = parts.get(1).unwrap_or(&"_");
 
                 match *target {
