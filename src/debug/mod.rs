@@ -59,10 +59,12 @@ pub fn read_debug_commands(
     // 1.Backspace
     if keys.just_pressed(KeyCode::Backspace) {
         debug_cmd.current_text.pop();
+        info!("Backspace was pressed.");
     }
 
     if keys.just_pressed(KeyCode::Space) {
         debug_cmd.current_text.push(' ');
+        info!("Space was pressed.");
     }
 
     // 2.Typing
@@ -78,6 +80,7 @@ pub fn read_debug_commands(
 
     // 3.Enter
     if keys.just_pressed(KeyCode::Enter) || keys.just_pressed(KeyCode::NumpadEnter) {
+        info!("Enter/NumpadEnter was pressed.");
         let full_command = debug_cmd.current_text.clone();
         debug_cmd.current_text.clear();
 
