@@ -2,6 +2,7 @@ use crate::debug::map::*;
 use crate::state::GameState;
 use bevy::input::keyboard::KeyboardInput;
 use bevy::prelude::*;
+use std::io::{self, Write};
 
 pub mod map;
 
@@ -12,7 +13,11 @@ impl Plugin for DebugPlugin {
         app.init_state::<DebugOn>()
             .init_resource::<DebugCommand>()
             .add_systems(Update, read_debug_keys.run_if(in_state(GameState::Playing)))
-            .add_systems(Update, read_debug_commands.run_if(in_state(DebugOn::On)));
+            .add_systems(Update, listen_for_slash.run_if(in_state(DebugOn::On)))
+            .add_systems(
+                Update,
+                read_debug_commands.run_if(in_state(DebugOn::TypingCommand)),
+            );
     }
 }
 
@@ -39,10 +44,7 @@ pub fn read_debug_keys(
                 next_state.set(DebugOn::Off);
                 info!("Debug mode: OFF");
             }
-            DebugOn::TypingCommand => {
-                next_state.set(DebugOn::TypingCommand);
-                info!("Typing command");
-            }
+            _ => {}
         }
     }
 }
@@ -50,6 +52,20 @@ pub fn read_debug_keys(
 #[derive(Resource, Default)]
 pub struct DebugCommand {
     pub current_text: String,
+}
+
+pub fn listen_for_slash(
+    keys: Res<ButtonInput<KeyCode>>,
+    mut next_state: ResMut<NextState<DebugOn>>,
+    mut debug_cmd: ResMut<DebugCommand>,
+) {
+    if keys.just_pressed(KeyCode::Slash) {
+        next_state.set(DebugOn::TypingCommand);
+        debug_cmd.current_text = "/".to_string();
+
+        print!("\r\x1b[K> /");
+        let _ = io::stdout().flush();
+    }
 }
 
 pub fn read_debug_commands(
@@ -60,47 +76,63 @@ pub fn read_debug_commands(
     player_query: Query<&Transform, With<crate::characters::input::Player>>,
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
+    mut next_state: ResMut<NextState<DebugOn>>,
 ) {
-    // 1.Backspace
+    let mut changed = false;
+
+    // 1. Backspace & Space
     if keys.just_pressed(KeyCode::Backspace) {
         debug_cmd.current_text.pop();
+        if debug_cmd.current_text.is_empty() {
+            next_state.set(DebugOn::On);
+            println!("\r\x1b[K> (closed)");
+        }
+        changed = true;
     }
 
     if keys.just_pressed(KeyCode::Space) {
         debug_cmd.current_text.push(' ');
+        changed = true;
     }
 
-    // 2.Typing
+    // 2. Typing
     for ev in char_evr.read() {
         if !ev.state.is_pressed() {
             continue;
         }
 
         if let bevy::input::keyboard::Key::Character(c) = &ev.logical_key {
+            if c.as_str() == "/" && debug_cmd.current_text == "/" {
+                continue;
+            }
+
             debug_cmd.current_text.push_str(c.as_str());
+            changed = true;
         }
     }
 
-    // 3.Enter
-    if keys.just_pressed(KeyCode::Enter) || keys.just_pressed(KeyCode::NumpadEnter) {
-        let full_command = debug_cmd.current_text.clone();
-        debug_cmd.current_text.clear();
+    if changed {
+        print!("\r\x1b[K> {}", debug_cmd.current_text);
+        let _ = io::stdout().flush();
+    }
 
-        // Split by spaces
+    // 3. Enter
+    if keys.just_pressed(KeyCode::Enter) || keys.just_pressed(KeyCode::NumpadEnter) {
+        let full_command = std::mem::take(&mut debug_cmd.current_text);
+        println!("\nExecuting: {}", full_command);
+
+        next_state.set(DebugOn::On);
+
         let parts: Vec<&str> = full_command.split_whitespace().collect();
         if parts.is_empty() {
             return;
         }
 
-        // --- MATCH ARM 1 ---
         match parts[0] {
             "/spawn" => {
-                // --- MATCH ARM 2 ---
                 let option = parts.get(1).unwrap_or(&"_");
-
                 match *option {
                     "tilemap" => {
-                        // --- MATCH ARM 3 ---
                         if let Some(target) = parts.get(2) {
                             debug_spawn_sprites(
                                 &mut commands,
@@ -109,8 +141,6 @@ pub fn read_debug_commands(
                                 &asset_server,
                                 &mut texture_atlas_layouts,
                             );
-                        } else {
-                            warn!("Usage: /spawn tilemap <name>");
                         }
                     }
                     _ => warn!("Unknown spawn option: {}", option),
