@@ -13,10 +13,17 @@ impl Plugin for DebugPlugin {
         app.init_state::<DebugOn>()
             .init_resource::<DebugCommand>()
             .add_systems(Update, read_debug_keys.run_if(in_state(GameState::Playing)))
-            .add_systems(Update, listen_for_slash.run_if(in_state(DebugOn::On)))
             .add_systems(
                 Update,
-                read_debug_commands.run_if(in_state(DebugOn::TypingCommand)),
+                listen_for_slash
+                    .run_if(in_state(DebugOn::On))
+                    .run_if(in_state(GameState::Playing)),
+            )
+            .add_systems(
+                Update,
+                read_debug_commands
+                    .run_if(in_state(DebugOn::TypingCommand))
+                    .run_if(in_state(GameState::Playing)),
             );
     }
 }
@@ -138,7 +145,7 @@ pub fn read_debug_commands(
                             debug_spawn_sprites(
                                 &mut commands,
                                 target,
-                                &player_query.to_readonly(),
+                                &player_query.into_readonly(),
                                 &asset_server,
                                 &mut texture_atlas_layouts,
                             );
