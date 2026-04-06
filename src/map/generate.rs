@@ -217,7 +217,7 @@ fn spawn_sprite(
                 }),
                 ..default()
             },
-            Transform::from_xyz(x as f32 * 16.0, y as f32 * 16.0, z),
+            Transform::from_xyz(x as f32 * TILE_SIZE, y as f32 * TILE_SIZE, z),
         ));
     }
 }
@@ -343,7 +343,7 @@ fn spawn_sprite_decor(
                 }),
                 ..default()
             },
-            Transform::from_xyz(x as f32 * 16.0, y as f32 * 16.0, dynamic_z),
+            Transform::from_xyz(x as f32 * TILE_SIZE, y as f32 * TILE_SIZE, dynamic_z),
         ));
     }
 }
