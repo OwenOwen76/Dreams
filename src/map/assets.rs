@@ -26,12 +26,6 @@ impl TilemapDefinition {
     pub fn sprite_index(&self, name: &str) -> Option<usize> {
         self.sprites.iter().position(|sprite| sprite.name == name)
     }
-
-    pub fn sprite_rect(&self, index: usize) -> URect {
-        let sprite = &self.sprites[index];
-        let min = UVec2::new(sprite.pixel_x, sprite.pixel_y);
-        URect::from_corners(min, min + self.tile_size())
-    }
 }
 
 pub const MAIN_TILEMAP: TilemapDefinition = TilemapDefinition {
