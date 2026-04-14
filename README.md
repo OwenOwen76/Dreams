@@ -10,7 +10,7 @@ Have a nice day~
 
 ## Running on the Web
 
-Follow the instructions in wasm.md to run this locally on the web, however it is not recommended because there is significant downgrade in quality and the camera is especially laggy. Most of the errors is mostly likely due to compiling differences than was created when the files was converted into Python. This game is also avalible (for now, it could be shut down anytime without warning) on [https://owenowen76.github.io/]
+Follow the instructions in wasm.md to run this locally on the web, however it is not recommended because there is significant downgrade in quality and the camera is especially laggy. Most of the errors is mostly likely due to compiling differences than was created when the files was converted into Python. This game is also avalible (for now, it could be shut down anytime without warning) on https://owenowen76.github.io/
 
 ## TODO/Issues
 
