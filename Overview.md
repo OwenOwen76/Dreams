@@ -155,7 +155,7 @@ All player progress is deleted as part of the resolution.
 * 1 month into devolopment working on a MVP
 * full single biome (forest) noised, with a player complete and full camera complete
 * combat and collision is being worked on right now
-* NPC dialog system has a 1-NPC MVP version that read limited keyword and creates dynamic response
+* NPC dialog system has a 1-NPC MVP version that read limited keyword and creates dynamic response, this is very much a work in progress and is much harder than I thought
 * there a fully functional pause menu and loading screen because why not
 * temp web demo is being worked on, slight dependency issues with some crate(s)
 * TO BE UPDATED
