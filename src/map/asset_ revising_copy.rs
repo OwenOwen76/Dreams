@@ -221,83 +221,83 @@ pub const DECOR_TILEMAP: TilemapDefinition = TilemapDefinition {
             pixel_y: 1,
         },
         TilemapSprite {
-            name: "mush_d1_0_0",
-            pixel_x: 160,
-            pixel_y: 2,
-        },
-        TilemapSprite {
-            name: "mush_d1_0_1",
-            pixel_x: 176,
-            pixel_y: 2,
-        },
-        TilemapSprite {
-            name: "mush_d1_1_0",
-            pixel_x: 160,
-            pixel_y: 3,
-        },
-        TilemapSprite {
-            name: "mush_d1_1_1",
-            pixel_x: 176,
-            pixel_y: 3,
-        },
-        TilemapSprite {
-            name: "mush_d2_0_0",
-            pixel_x: 192,
-            pixel_y: 2,
-        },
-        TilemapSprite {
-            name: "mush_d2_0_1",
-            pixel_x: 208,
-            pixel_y: 2,
-        },
-        TilemapSprite {
-            name: "mush_d2_1_0",
-            pixel_x: 192,
-            pixel_y: 3,
-        },
-        TilemapSprite {
-            name: "mush_d2_1_1",
-            pixel_x: 208,
-            pixel_y: 3,
-        },
-        TilemapSprite {
             name: "mush_g3_0_0",
-            pixel_x: 224,
+            pixel_x: 14,
             pixel_y: 0,
         },
         TilemapSprite {
             name: "mush_g3_0_1",
-            pixel_x: 240,
+            pixel_x: 15,
             pixel_y: 0,
         },
         TilemapSprite {
             name: "mush_g3_1_0",
-            pixel_x: 224,
+            pixel_x: 14,
             pixel_y: 1,
         },
         TilemapSprite {
             name: "mush_g3_1_1",
-            pixel_x: 240,
+            pixel_x: 15,
             pixel_y: 1,
         },
         TilemapSprite {
+            name: "mush_d1_0_0",
+            pixel_x: 10,
+            pixel_y: 2,
+        },
+        TilemapSprite {
+            name: "mush_d1_0_1",
+            pixel_x: 11,
+            pixel_y: 2,
+        },
+        TilemapSprite {
+            name: "mush_d1_1_0",
+            pixel_x: 10,
+            pixel_y: 3,
+        },
+        TilemapSprite {
+            name: "mush_d1_1_1",
+            pixel_x: 11,
+            pixel_y: 3,
+        },
+        TilemapSprite {
+            name: "mush_d2_0_0",
+            pixel_x: 12,
+            pixel_y: 2,
+        },
+        TilemapSprite {
+            name: "mush_d2_0_1",
+            pixel_x: 13,
+            pixel_y: 2,
+        },
+        TilemapSprite {
+            name: "mush_d2_1_0",
+            pixel_x: 12,
+            pixel_y: 3,
+        },
+        TilemapSprite {
+            name: "mush_d2_1_1",
+            pixel_x: 13,
+            pixel_y: 3,
+        },
+        TilemapSprite {
             name: "mush_d3_0_0",
-            pixel_x: 224,
+            pixel_x: 14,
             pixel_y: 2,
         },
         TilemapSprite {
             name: "mush_d3_0_1",
-            pixel_x: 240,
+            pixel_x: 15,
             pixel_y: 2,
         },
         TilemapSprite {
             name: "mush_d3_1_0",
-            pixel_x: 224,
+            pixel_x: 14,
             pixel_y: 3,
         },
         TilemapSprite {
             name: "mush_d3_1_1",
-            pixel_x: 240,
+            pixel_x: 15,
             pixel_y: 3,
         },
         TilemapSprite {
