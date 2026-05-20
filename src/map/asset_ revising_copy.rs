@@ -524,23 +524,23 @@ pub const DECOR_TILEMAP: TilemapDefinition = TilemapDefinition {
         // --- PEBBLE ---
         TilemapSprite {
             name: "pebble_g_0_0",
-            pixel_x: 128,
-            pixel_y: 112,
+            pixel_x: 8,
+            pixel_y: 6,
         },
         TilemapSprite {
             name: "pebble_g_0_1",
-            pixel_x: 144,
-            pixel_y: 112,
+            pixel_x: 9,
+            pixel_y: 6,
         },
         TilemapSprite {
             name: "pebble_g_1_0",
-            pixel_x: 128,
-            pixel_y: 128,
+            pixel_x: 8,
+            pixel_y: 7,
         },
         TilemapSprite {
             name: "pebble_g_1_1",
-            pixel_x: 144,
-            pixel_y: 128,
+            pixel_x: 9,
+            pixel_y: 7,
         },
         // --- 3 ROCKS ---
         TilemapSprite {
