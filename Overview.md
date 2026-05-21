@@ -85,6 +85,8 @@ Her role is to:
 
 * Deliver tutorials
 * Provide commentary
+* Represents the Dreamer's subconsciousness while she is in a coma, (a filter/shield?)
+
 
 #### The Dreamer
 
@@ -115,7 +117,7 @@ The player defeats the original version.
 * The traumatic memory become too much
 * The world collapses, I have an idea for gameplay reason where there'll be exact 30min countdown before the world is gone, during which there's special enemies/bosses
 * The Dreamer dies, this should end with, after the 30min countdown, a cardiac monitor showing the heart stops, either fades out or have something after.
-
+* I think I might change this, it's too black-and-white for this game
 
 #### Sacrifice:
 The player allows the original version to erase them.
